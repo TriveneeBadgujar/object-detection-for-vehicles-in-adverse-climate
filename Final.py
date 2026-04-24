@@ -9,8 +9,11 @@ import os
 # ---------------- VOICE ----------------
 last_spoken = ""
 
-def speak_thread(msg):
-    os.system(f'powershell -c "(New-Object -ComObject SAPI.SpVoice).Speak(\'{msg}\')"')
+# def speak_thread(msg):
+    # os.system(f'powershell -c "(New-Object -ComObject SAPI.SpVoice).Speak(\'{msg}\')"')
+
+def speak_alert(message):
+    pass  # Disable voice on cloud
 
 def speak_alert(message):
     global last_spoken
