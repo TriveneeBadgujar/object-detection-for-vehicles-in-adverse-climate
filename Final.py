@@ -353,50 +353,7 @@ elif mode == "Video":
 
         cap.release()
 
-# ================= CAMERA =================
-elif mode == "Camera":
-    run = st.checkbox("Start Camera")
-    # cap = cv2.VideoCapture(0)
-    frame_window = st.empty()
 
-    while run:
-        # ret, frame = cap.read()
-        if not ret:
-            break
-
-        results = active_model(frame)
-
-        labels = set()
-        close = set()
-
-        for r in results:
-            for b in r.boxes:
-                x1,y1,x2,y2 = map(int,b.xyxy[0])
-                name = active_model.names[int(b.cls[0])]
-
-                if name in ADAS_CLASSES:
-                    labels.add(name)
-
-                    area = (x2-x1)*(y2-y1)
-                    color = (0,255,0)
-
-                    if area > 60000:
-                        close.add(name)
-                        color = (0,0,255)
-                        cv2.putText(frame,"WARNING",(30,40),0,1,(0,0,255),3)
-
-                    cv2.rectangle(frame,(x1,y1),(x2,y2),color,2)
-                    cv2.putText(frame, name, (x1,y1-10), 0, 0.6, color, 2)
-
-        suggest_list, voice_msgs = suggestions(labels, close)
-
-        if sound_on:
-            for msg in voice_msgs:
-                speak_alert(msg)
-
-        frame_window.image(resize_image(frame), channels="BGR")
-
-    cap.release()
 st.markdown("""
 <div class="glass team-section">
 
