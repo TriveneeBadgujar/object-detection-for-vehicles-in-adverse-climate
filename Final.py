@@ -356,7 +356,7 @@ elif mode == "Video":
 # ================= CAMERA =================
 elif mode == "Camera":
     run = st.checkbox("Start Camera")
-    cap = cv2.VideoCapture(0)
+    # cap = cv2.VideoCapture(0)
     frame_window = st.empty()
 
     while run:
