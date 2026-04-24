@@ -360,7 +360,7 @@ elif mode == "Camera":
     frame_window = st.empty()
 
     while run:
-        ret, frame = cap.read()
+        # ret, frame = cap.read()
         if not ret:
             break
 
