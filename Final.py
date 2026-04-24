@@ -230,7 +230,7 @@ def suggestions(labels, close):
 
 # ---------------- SIDEBAR ----------------
 st.sidebar.markdown('<div class="sidebar-title">System Controls</div>', unsafe_allow_html=True)
-mode = st.sidebar.radio("Select Mode", ["Image","Video","Camera"])
+mode = st.sidebar.radio("Select Mode", ["Image","Video"])
 sound_on = st.sidebar.checkbox("Enable Voice Alerts", value=True)
 
 # ✅ NEW: MODEL SELECTOR
