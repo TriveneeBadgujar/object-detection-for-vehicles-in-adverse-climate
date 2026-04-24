@@ -1,0 +1,101 @@
+Microsoft Windows [Version 10.0.26200.8037]
+(c) Microsoft Corporation. All rights reserved.
+
+I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training>^A
+
+I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training>yolo detect train ^
+More? model=runs/detect/train/weights/best.pt ^
+More? data=bdd100k_yolo/data.yaml ^
+More? epochs=4 ^
+More? imgsz=416 ^
+More? batch=16 ^
+More? workers=4
+New https://pypi.org/project/ultralytics/8.4.24 available  Update with 'pip install -U ultralytics'
+Ultralytics 8.3.202  Python-3.13.1 torch-2.8.0+cpu CPU (AMD Ryzen 5 4600G with Radeon Graphics)
+engine\trainer: agnostic_nms=False, amp=True, augment=False, auto_augment=randaugment, batch=16, bgr=0.0, box=7.5, cache=False, cfg=None, classes=None, close_mosaic=10, cls=0.5, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=bdd100k_yolo/data.yaml, degrees=0.0, deterministic=True, device=cpu, dfl=1.5, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=4, erasing=0.4, exist_ok=False, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, half=False, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=416, int8=False, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=runs/detect/train/weights/best.pt, momentum=0.937, mosaic=1.0, multi_scale=False, name=train2, nbs=64, nms=False, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=None, rect=False, resume=False, retina_masks=False, save=True, save_conf=False, save_crop=False, save_dir=I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\runs\detect\train2, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=botsort.yaml, translate=0.1, val=True, verbose=True, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=4, workspace=None
+
+                   from  n    params  module                                       arguments
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]
+  2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]
+  3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]
+  4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]
+  5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]
+  6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]
+  8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]
+ 10                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']
+ 11             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 12                  -1  1    148224  ultralytics.nn.modules.block.C2f             [384, 128, 1]
+ 13                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']
+ 14             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 15                  -1  1     37248  ultralytics.nn.modules.block.C2f             [192, 64, 1]
+ 16                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]
+ 17            [-1, 12]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 18                  -1  1    123648  ultralytics.nn.modules.block.C2f             [192, 128, 1]
+ 19                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]
+ 20             [-1, 9]  1         0  ultralytics.nn.modules.conv.Concat           [1]
+ 21                  -1  1    493056  ultralytics.nn.modules.block.C2f             [384, 256, 1]
+ 22        [15, 18, 21]  1    753262  ultralytics.nn.modules.head.Detect           [10, [64, 128, 256]]
+Model summary: 129 layers, 3,012,798 parameters, 3,012,782 gradients, 8.2 GFLOPs
+
+Transferred 355/355 items from pretrained weights
+Freezing layer 'model.22.dfl.conv.weight'
+train: Fast image access  (ping: 0.60.2 ms, read: 7.72.6 MB/s, size: 55.7 KB)
+train: Scanning I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\bdd100k_yolo\train\labels.cache... 70000 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━train: Scanning I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\bdd100k_yolo\train\labels.cache... 70000 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 70000/70000 117.8Mit/s 0.0s
+train: I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\bdd100k_yolo\train\images\75055858-7d04a650.jpg: 1 duplicate labels removed
+val: Fast image access  (ping: 0.50.1 ms, read: 7.63.5 MB/s, size: 58.2 KB)
+val: Scanning I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\bdd100k_yolo\val\labels.cache... 10000 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━val: Scanning I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\bdd100k_yolo\val\labels.cache... 10000 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━10000/10000 67.5Mit/s 0.0s
+Plotting labels to I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\runs\detect\train2\labels.jpg...
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically...
+optimizer: AdamW(lr=0.000714, momentum=0.9) with parameter groups 57 weight(decay=0.0), 64 weight(decay=0.0005), 63 bias(decay=0.0)
+Image sizes 416 train, 416 val
+Using 0 dataloader workers
+Logging results to I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\runs\detect\train2
+Starting training for 4 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        1/4         0G       1.45     0.9588     0.9912        560        416: 100% ━━━━━━━━━━━━ 4375/4375 0.4it/s 2:43:19
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 313/313 0.8it/s 6:46
+                   all      10000     185578      0.394       0.23      0.225       0.12
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        2/4         0G      1.438     0.9375     0.9893        379        416: 100% ━━━━━━━━━━━━ 4375/4375 0.5it/s 2:37:00
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 313/313 0.9it/s 5:37
+                   all      10000     185578        0.4      0.249      0.241      0.129
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        3/4         0G      1.408     0.9035     0.9805        513        416: 100% ━━━━━━━━━━━━ 4375/4375 0.5it/s 2:34:55
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 313/313 0.8it/s 6:36
+                   all      10000     185578      0.512      0.261      0.256      0.138
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+        4/4         0G      1.373     0.8633     0.9693        445        416: 100% ━━━━━━━━━━━━ 4375/4375 0.5it/s 2:26:49
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 313/313 1.0it/s 5:25
+                   all      10000     185578      0.529      0.268      0.271      0.147
+
+4 epochs completed in 10.777 hours.
+Optimizer stripped from I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\runs\detect\train2\weights\last.pt, 6.2MB
+Optimizer stripped from I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\runs\detect\train2\weights\best.pt, 6.2MB
+
+Validating I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\runs\detect\train2\weights\best.pt...
+Ultralytics 8.3.202  Python-3.13.1 torch-2.8.0+cpu CPU (AMD Ryzen 5 4600G with Radeon Graphics)
+Model summary (fused): 72 layers, 3,007,598 parameters, 0 gradients, 8.1 GFLOPs
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 313/313 1.2it/s 4:12
+                   all      10000     185578       0.53      0.268      0.271      0.147
+                person       3220      13265      0.464       0.32      0.318      0.133
+                 rider        515        649      0.371      0.197      0.183     0.0798
+                   car       9879     102540      0.605      0.564      0.582       0.35
+                 truck       1242       1597      0.468      0.386       0.38      0.283
+                   bus       2689       4247      0.496      0.401      0.407      0.282
+                 train        578       1007      0.313      0.186      0.159     0.0702
+            motorcycle        334        452      0.544      0.108      0.154     0.0632
+               bicycle       5653      26891      0.484      0.242      0.233     0.0726
+         traffic light       8221      34915      0.554      0.273      0.292      0.136
+          traffic sign         14         15          1          0    0.00595    0.00416
+Speed: 0.4ms preprocess, 16.9ms inference, 0.0ms loss, 1.0ms postprocess per image
+Results saved to I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training\runs\detect\train2
+ Learn more at https://docs.ultralytics.com/modes/train
+
+I:\Trivenee Badgujar\Last Sem BE\yolo_bdd_training>
