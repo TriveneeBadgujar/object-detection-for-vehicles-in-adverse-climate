@@ -5,6 +5,7 @@ from ultralytics import YOLO
 import numpy as np
 import threading
 import os
+import urllib.request
 
 # ---------------- VOICE ----------------
 last_spoken = ""
@@ -176,8 +177,12 @@ st.markdown('<div class="main-title">Object Detection For Vehicles In Adverse We
 @st.cache_resource
 def load_models():
     coco = YOLO("yolov8n.pt")
-    custom = YOLO("best.pt")
+    MODEL_URL = "https://drive.google.com/uc?id=1nz64uFLTFfU6xmdyMW5SgmI10CRX5hga"
+    MODEL_PATH = "best.pt"
+    if not os.path.exists(MODEL_PATH):
+        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
     return coco, custom
+    custom = YOLO(MODEL_PATH)
 
 coco_model, custom_model = load_models()
 
